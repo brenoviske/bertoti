@@ -1,2 +1,0 @@
-# bertoti
-Engenharia de Software
