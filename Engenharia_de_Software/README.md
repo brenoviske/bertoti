@@ -18,3 +18,105 @@ Exemplos de tradeoffs
 a velocidade 
 
 3 - Sistemas feitos em uma grande simplicidade podem ser mais fáceis de se desenvolver porém menos adaptável a grandes mudanças ou requisitos.
+
+
+EXERCÍCIO - 4
+
+DIAGRAMA DE CLASSE PARA POSTERIOR CONSTRUÇÃO EM CÓDIGO JAVA
+
+```yaml
+
++-------------------+
+|    Calculadora    |
++-------------------+
+|                   |
++-------------------+
+| + somar(a: int, b: int): int      |
+| + subtrair(a: int, b: int): int   |
+| + multiplicar(a: int, b: int): int|
+| + dividir(a: int, b: int): double |
++-------------------+
+
+```
+
+
+EXERCÍCIO - 5 
+
+CONSTRUÇÃO DE UMA CLASSE UTILIZANDO CÓDIGOS DO JAVA
+
+```java
+
+public class Calc {
+    int n1;
+    int n2;
+    String op;
+
+    public Calc( int n1 , int n2 , String op ){
+        this.n1 = n1;
+        this.n2 = n2;
+        this.op = op;
+    }
+
+    public double Sum(){
+        return n1 + n2;
+    }
+
+    public double Sub(){
+        return n1 - n2;
+
+    }
+
+    public double Mul(){
+       return n1 * n2;
+    }
+
+    public double Div(){
+        if ( n2 == 0){
+            return 0;
+        }
+        return (double) n1 / n2;
+    }
+
+    public double Pow(){
+        return Math.pow(n1, n2);
+    }
+
+```
+
+
+EXERCÍCIO 6 
+
+AUTOMATIZAÇÃO DE TESTE DESTA CLASSE CRIADA EM QUESTÃO
+
+
+```java
+
+
+public class TesteCalculadora {
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+
+        // Testando soma
+        System.out.println("Soma 5 + 3 = " + calc.somar(5, 3)); // esperado 8
+
+        // Testando subtração
+        System.out.println("Subtração 10 - 4 = " + calc.subtrair(10, 4)); // esperado 6
+
+        // Testando multiplicação
+        System.out.println("Multiplicação 7 * 6 = " + calc.multiplicar(7, 6)); // esperado 42
+
+        // Testando divisão
+        System.out.println("Divisão 20 / 5 = " + calc.dividir(20, 5)); // esperado 4.0
+
+        // Testando divisão por zero (gera exceção)
+        try {
+            calc.dividir(10, 0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro esperado: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+
